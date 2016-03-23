@@ -19,6 +19,7 @@ public class PizzaPreferences extends AppCompatActivity {
     private RadioButton rdobtnThick;
     private RadioButton rdobtnCheeseFilled;
     private CheckBox chkboxGarlic;
+    public String pizzaSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +60,31 @@ public class PizzaPreferences extends AppCompatActivity {
 
         Intent calculatePizzaCost = new Intent(this, CostCalculator.class);
         boolean[] hasToppings = new boolean[toppings.length];
-
         //insert your code here
+
+        for (int i = 0; i < toppings.length; i++) {
+            if(toppings[i].isChecked()){
+                hasToppings[i] = true;
+            }
+            else {
+                hasToppings[i] = false;
+            }
+        }
+        if(rdobtnIndividual.isChecked()){
+            pizzaSize = "Individual";
+        }
+        else if(rdobtnSmall.isChecked()){
+            pizzaSize = "Small";
+        }
+        else if (rdobtnMedium.isChecked()){
+            pizzaSize = "Medium";
+        }
+        else if(rdobtnLarge.isChecked()) {
+            pizzaSize = "Large";
+        }
+        else if(rdobtnExtraLarge.isChecked()) {
+            pizzaSize = "Extra Large";
+        }
 
         calculatePizzaCost.putExtra("TOPPINGS_BOOLEANS", hasToppings);
         startActivityForResult(calculatePizzaCost, 0);

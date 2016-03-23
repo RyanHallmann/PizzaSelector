@@ -48,6 +48,12 @@ public class CostCalculator extends AppCompatActivity {
         TextView txtvwCostBreakdown = (TextView) findViewById(R.id.txtvwCostBreakdown);
 
         //Insert your code here.
+        for (int i = 0; i < toppingsOnPizza.length; i++) {
+            if(toppingsOnPizza[i] = true){
+                numToppings++;
+                toppingCost += TOPPING_COST;
+            }
+        }
 
         String costs = String.format("Toppings: %d x $0.75 = $%.2f\nSize: %s = $%.2f\n" +
                 "Crust Type: %s = $%.2f\nSubtotal: $%.2f\nTaxes: $%.2f\nTotal: $%.2f",
